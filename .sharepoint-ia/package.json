@@ -3,11 +3,12 @@
   "version": "1.0.0",
   "description": "SharePoint Information Architecture automation for Diatonic Visuals",
   "scripts": {
-    "create-root-hub": "powershell -ExecutionPolicy Bypass -File ./scripts/New-RootHub.ps1",
-    "create-dept-site": "powershell -ExecutionPolicy Bypass -File ./scripts/New-DepartmentSite.ps1",
-    "create-client-site": "bash ./scripts/New-ClientSite.sh",
+    "create-root-hub": "node ./scripts/deploy-root-hub.js",
+    "create-dept-site": "echo 'Department site deployment not yet implemented'",
+    "create-client-site": "node ./scripts/deploy-client-site.js",
     "validate-templates": "echo 'Validating PnP templates...'",
-    "deploy-all": "npm run create-root-hub && npm run create-dept-site"
+    "deploy-all": "npm run create-root-hub",
+    "test-auth": "m365 status"
   },
   "keywords": [
     "sharepoint",
