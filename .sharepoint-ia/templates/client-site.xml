@@ -1,0 +1,152 @@
+<pnp:Provisioning xmlns:pnp="http://schemas.dev.office.com/PnP/2024/10/ProvisioningSchema">
+  <pnp:Templates>
+    <pnp:ProvisioningTemplate ID="ClientSite">
+      <pnp:SiteFields>
+        <pnp:Field DisplayName="Project Status" Name="DV_ProjectStatus" Type="Choice" Choices="Planning;In-Progress;Review;Completed;On-Hold" />
+        <pnp:Field DisplayName="Training Level" Name="DV_TrainingLevel" Type="Choice" Choices="Beginner;Intermediate;Advanced" />
+        <pnp:Field DisplayName="Client Industry" Name="DV_ClientIndustry" Type="TaxonomyFieldType" />
+      </pnp:SiteFields>
+      
+      <pnp:ContentTypes>
+        <pnp:ContentType ID="0x0101009D1CB255DA76424F860D91F20E6C4120" Name="DV Deliverable">
+          <pnp:FieldRefs>
+            <pnp:FieldRef Name="DV_ProjectStatus" />
+            <pnp:FieldRef Name="DV_ClientIndustry" />
+          </pnp:FieldRefs>
+        </pnp:ContentType>
+        
+        <pnp:ContentType ID="0x012001009D1CB255DA76424F860D91F20E6C4121" Name="DV Training Video" ParentContentTypeId="0x012001">
+          <pnp:FieldRefs>
+            <pnp:FieldRef Name="DV_TrainingLevel" />
+            <pnp:FieldRef Name="DV_ClientIndustry" />
+          </pnp:FieldRefs>
+        </pnp:ContentType>
+      </pnp:ContentTypes>
+      
+      <pnp:Lists>
+        <pnp:ListInstance Title="Deliverables" TemplateType="101" Url="Deliverables">
+          <pnp:ContentTypeBindings>
+            <pnp:ContentTypeBinding ContentTypeID="0x0101009D1CB255DA76424F860D91F20E6C4120" Default="true" />
+          </pnp:ContentTypeBindings>
+          <pnp:Fields>
+            <pnp:Field DisplayName="Delivery Date" Name="DeliveryDate" Type="DateTime" />
+            <pnp:Field DisplayName="Client Approval" Name="ClientApproval" Type="Boolean" />
+          </pnp:Fields>
+        </pnp:ListInstance>
+        
+        <pnp:ListInstance Title="Training-Videos" TemplateType="101" Url="Training-Videos">
+          <pnp:ContentTypeBindings>
+            <pnp:ContentTypeBinding ContentTypeID="0x012001009D1CB255DA76424F860D91F20E6C4121" Default="true" />
+          </pnp:ContentTypeBindings>
+          <pnp:Fields>
+            <pnp:Field DisplayName="Duration" Name="Duration" Type="Number" />
+            <pnp:Field DisplayName="Video URL" Name="VideoURL" Type="URL" />
+          </pnp:Fields>
+        </pnp:ListInstance>
+        
+        <pnp:ListInstance Title="Brand-Guidelines" TemplateType="101" Url="Brand-Guidelines">
+          <pnp:ContentTypeBindings>
+            <pnp:ContentTypeBinding ContentTypeID="0x0101009D1CB255DA76424F860D91F20E6C4120" Default="true" />
+          </pnp:ContentTypeBindings>
+        </pnp:ListInstance>
+        
+        <pnp:ListInstance Title="Sign-Offs" TemplateType="101" Url="Sign-Offs">
+          <pnp:ContentTypeBindings>
+            <pnp:ContentTypeBinding ContentTypeID="0x0101009D1CB255DA76424F860D91F20E6C4120" Default="true" />
+          </pnp:ContentTypeBindings>
+          <pnp:Fields>
+            <pnp:Field DisplayName="Approver" Name="Approver" Type="User" />
+            <pnp:Field DisplayName="Approval Date" Name="ApprovalDate" Type="DateTime" />
+            <pnp:Field DisplayName="Comments" Name="ApprovalComments" Type="Note" />
+          </pnp:Fields>
+        </pnp:ListInstance>
+      </pnp:Lists>
+      
+      <pnp:Pages>
+        <pnp:ClientSidePage PageName="Home.aspx" PromoteAsNewsArticle="false" PromoteAsTemplate="false" Overwrite="true" Layout="Home">
+          <pnp:Sections>
+            <pnp:Section Order="1" Type="OneColumn">
+              <pnp:Controls>
+                <pnp:CanvasControl WebPartType="Hero" ControlId="{c4bd7b2f-7b6e-4599-8485-16504575f591}" Order="1" Column="1">
+                  <pnp:CanvasControlProperties>
+                    <![CDATA[{"title":"Welcome to Your Project Portal","description":"Your dedicated space for project updates, deliverables, and collaboration."}]]>
+                  </pnp:CanvasControlProperties>
+                </pnp:CanvasControl>
+              </pnp:Controls>
+            </pnp:Section>
+            <pnp:Section Order="2" Type="TwoColumn">
+              <pnp:Controls>
+                <pnp:CanvasControl WebPartType="List" ControlId="{b7dd04e1-19ce-4b24-9132-b60a1c2b910d}" Order="1" Column="1">
+                  <pnp:CanvasControlProperties>
+                    <![CDATA[{"listId":"Deliverables","title":"Latest Deliverables","viewId":""}]]>
+                  </pnp:CanvasControlProperties>
+                </pnp:CanvasControl>
+                <pnp:CanvasControl WebPartType="Text" ControlId="{1f991d46-3bb1-4ffe-9e41-c0894a35f9c1}" Order="1" Column="2">
+                  <pnp:CanvasControlProperties>
+                    <![CDATA[{"innerHTML":"<h3>Project Status</h3><p>Current project status and next milestones.</p>"}]]>
+                  </pnp:CanvasControlProperties>
+                </pnp:CanvasControl>
+              </pnp:Controls>
+            </pnp:Section>
+          </pnp:Sections>
+        </pnp:ClientSidePage>
+        
+        <pnp:ClientSidePage PageName="Training-Center.aspx" PromoteAsNewsArticle="false" PromoteAsTemplate="false" Overwrite="true" Layout="Article">
+          <pnp:Sections>
+            <pnp:Section Order="1" Type="OneColumn">
+              <pnp:Controls>
+                <pnp:CanvasControl WebPartType="Text" ControlId="{1f991d46-3bb1-4ffe-9e41-c0894a35f9c2}" Order="1" Column="1">
+                  <pnp:CanvasControlProperties>
+                    <![CDATA[{"innerHTML":"<h1>Training Center</h1><p>Access training materials and resources tailored for your team.</p>"}]]>
+                  </pnp:CanvasControlProperties>
+                </pnp:CanvasControl>
+                <pnp:CanvasControl WebPartType="List" ControlId="{b7dd04e1-19ce-4b24-9132-b60a1c2b910e}" Order="2" Column="1">
+                  <pnp:CanvasControlProperties>
+                    <![CDATA[{"listId":"Training-Videos","title":"Training Videos","viewId":""}]]>
+                  </pnp:CanvasControlProperties>
+                </pnp:CanvasControl>
+              </pnp:Controls>
+            </pnp:Section>
+          </pnp:Sections>
+        </pnp:ClientSidePage>
+        
+        <pnp:ClientSidePage PageName="Document-Vault.aspx" PromoteAsNewsArticle="false" PromoteAsTemplate="false" Overwrite="true" Layout="Article">
+          <pnp:Sections>
+            <pnp:Section Order="1" Type="OneColumn">
+              <pnp:Controls>
+                <pnp:CanvasControl WebPartType="Text" ControlId="{1f991d46-3bb1-4ffe-9e41-c0894a35f9c3}" Order="1" Column="1">
+                  <pnp:CanvasControlProperties>
+                    <![CDATA[{"innerHTML":"<h1>Document Vault</h1><p>Secure repository for all project documents and assets.</p>"}]]>
+                  </pnp:CanvasControlProperties>
+                </pnp:CanvasControl>
+                <pnp:CanvasControl WebPartType="List" ControlId="{b7dd04e1-19ce-4b24-9132-b60a1c2b910f}" Order="2" Column="1">
+                  <pnp:CanvasControlProperties>
+                    <![CDATA[{"listId":"Brand-Guidelines","title":"Brand Guidelines","viewId":""}]]>
+                  </pnp:CanvasControlProperties>
+                </pnp:CanvasControl>
+              </pnp:Controls>
+            </pnp:Section>
+          </pnp:Sections>
+        </pnp:ClientSidePage>
+        
+        <pnp:ClientSidePage PageName="Contact-Us.aspx" PromoteAsNewsArticle="false" PromoteAsTemplate="false" Overwrite="true" Layout="Article">
+          <pnp:Sections>
+            <pnp:Section Order="1" Type="OneColumn">
+              <pnp:Controls>
+                <pnp:CanvasControl WebPartType="Text" ControlId="{1f991d46-3bb1-4ffe-9e41-c0894a35f9c4}" Order="1" Column="1">
+                  <pnp:CanvasControlProperties>
+                    <![CDATA[{"innerHTML":"<h1>Contact Us</h1><p>Get in touch with your project team.</p><h3>Project Manager</h3><p>Email: pm@dv.com</p><h3>Account Team</h3><p>Email: account@dv.com</p>"}]]>
+                  </pnp:CanvasControlProperties>
+                </pnp:CanvasControl>
+              </pnp:Controls>
+            </pnp:Section>
+          </pnp:Sections>
+        </pnp:ClientSidePage>
+      </pnp:Pages>
+      
+      <pnp:SiteSettings>
+        <pnp:ExternalSharingSettings SharingCapability="ExternalUserAndGuestSharing" RequireSignInForExternalUsers="true" />
+      </pnp:SiteSettings>
+    </pnp:ProvisioningTemplate>
+  </pnp:Templates>
+</pnp:Provisioning>

@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build",
+      "type": "shell",
+      "command": "gulp build",
+      "problemMatcher": ["$tsc"],
+      "group": "build"
+    },
+    {
+      "label": "Serve",
+      "type": "shell",
+      "command": "gulp serve",
+      "isBackground": true,
+      "problemMatcher": "$tsc-watch"
+    },
+    {
+      "label": "Bundle",
+      "type": "shell",
+      "command": "gulp bundle --ship",
+      "problemMatcher": ["$tsc"],
+      "group": "build"
+    },
+    {
+      "label": "Package Solution",
+      "type": "shell",
+      "command": "gulp package-solution --ship",
+      "problemMatcher": ["$tsc"],
+      "group": "build"
+    },
+    {
+      "label": "Deploy",
+      "type": "shell",
+      "command": "./scripts/deploy/deploy.sh",
+      "problemMatcher": []
+    }
+  ]
+}
+

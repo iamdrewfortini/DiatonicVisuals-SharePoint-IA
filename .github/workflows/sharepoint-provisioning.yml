@@ -1,0 +1,80 @@
+name: SharePoint Site Provisioning
+
+on:
+  workflow_dispatch:
+    inputs:
+      deployment_type:
+        description: 'Type of deployment'
+        required: true
+        default: 'root-hub'
+        type: choice
+        options:
+        - root-hub
+        - dept-site
+        - client-site
+        - all-sites
+      client_name:
+        description: 'Client name (for client-site deployment)'
+        required: false
+        type: string
+      tenant_url:
+        description: 'SharePoint tenant URL'
+        required: true
+        type: string
+
+jobs:
+  provision-sharepoint:
+    runs-on: ubuntu-latest
+    
+    environment: production
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '22.x'
+        
+    - name: Install dependencies
+      run: |
+        npm install
+        npm install -g @pnp/cli-microsoft365
+        
+    - name: Setup SharePoint IA
+      run: npm run ia:setup
+      
+    - name: Authenticate to Microsoft 365
+      run: |
+        m365 login --authType password --userName ${{ secrets.M365_USERNAME }} --password ${{ secrets.M365_PASSWORD }}
+      env:
+        M365_USERNAME: ${{ secrets.M365_USERNAME }}
+        M365_PASSWORD: ${{ secrets.M365_PASSWORD }}
+        
+    - name: Deploy Root Hub
+      if: ${{ github.event.inputs.deployment_type == 'root-hub' || github.event.inputs.deployment_type == 'all-sites' }}
+      run: npm run ia:create-root-hub
+      
+    - name: Deploy Department Sites
+      if: ${{ github.event.inputs.deployment_type == 'dept-site' || github.event.inputs.deployment_type == 'all-sites' }}
+      run: npm run ia:create-dept-site
+      
+    - name: Deploy Client Site
+      if: ${{ github.event.inputs.deployment_type == 'client-site' }}
+      run: |
+        cd .sharepoint-ia
+        bash ./scripts/New-ClientSite.sh "${{ github.event.inputs.client_name }}"
+      env:
+        CLIENTS_HUB_ID: ${{ secrets.CLIENTS_HUB_ID }}
+        
+    - name: Deploy All Sites
+      if: ${{ github.event.inputs.deployment_type == 'all-sites' }}
+      run: npm run ia:deploy-all
+      
+    - name: Validate Deployment
+      run: npm run ia:validate
+      
+    - name: Logout from Microsoft 365
+      if: always()
+      run: m365 logout

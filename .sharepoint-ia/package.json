@@ -1,0 +1,22 @@
+{
+  "name": "diatonic-visuals-sharepoint-ia",
+  "version": "1.0.0",
+  "description": "SharePoint Information Architecture automation for Diatonic Visuals",
+  "scripts": {
+    "create-root-hub": "powershell -ExecutionPolicy Bypass -File ./scripts/New-RootHub.ps1",
+    "create-dept-site": "powershell -ExecutionPolicy Bypass -File ./scripts/New-DepartmentSite.ps1",
+    "create-client-site": "bash ./scripts/New-ClientSite.sh",
+    "validate-templates": "echo 'Validating PnP templates...'",
+    "deploy-all": "npm run create-root-hub && npm run create-dept-site"
+  },
+  "keywords": [
+    "sharepoint",
+    "pnp",
+    "information-architecture",
+    "diatonic-visuals"
+  ],
+  "author": "Diatonic Visuals",
+  "license": "ISC",
+  "devDependencies": {},
+  "dependencies": {}
+}

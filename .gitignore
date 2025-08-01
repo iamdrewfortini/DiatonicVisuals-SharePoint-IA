@@ -1,0 +1,68 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Dependency directories
+node_modules
+
+# Build generated files
+dist
+lib
+temp
+
+# SharePoint package
+sharepoint/solution/*.sppkg
+
+# SharePoint IA secrets
+.sharepoint-ia/secrets/
+.sharepoint-ia/logs/
+.sharepoint-ia/.env
+
+# Credentials and tokens
+*.pfx
+*.p12
+*.pem
+
+# Deployment artifacts
+deploy/
+releases/
+
+# npm cache directory
+.npm
+.eslintcache
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# dotenv environment variables file
+.env
+.env.test
+.env.production
+
+# Webpack
+.webpack/
+
+# TypeScript
+*.tsbuildinfo
+
+# Coverage directory used by tools like istanbul
+coverage
+
+# OSX
+.DS_Store
+
+# Visual Studio files
+.ntvs_analysis.dat
+.vs
+bin
+obj
+
+# Resx Generated Code
+*.resx.ts
+
+# Styles Generated Code
+*.scss.ts

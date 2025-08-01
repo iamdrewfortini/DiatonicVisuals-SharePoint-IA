@@ -1,0 +1,19 @@
+<pnp:Provisioning xmlns:pnp="http://schemas.dev.office.com/PnP/2024/10/ProvisioningSchema">
+  <pnp:Templates>
+    <pnp:ProvisioningTemplate ID="DeptSite">
+      <pnp:SiteFields>
+        <pnp:Field DisplayName="Project Phase" Name="DV_ProjectPhase" Type="Choice" Choices="Draft;Active;Closed" />
+      </pnp:SiteFields>
+      <pnp:ContentTypes>
+        <pnp:ContentType ID="0x0101009D1CB255DA76424F860D91F20E6C4118" Name="DV Project Document">
+          <pnp:FieldRefs>
+            <pnp:FieldRef Name="DV_ProjectPhase" />
+          </pnp:FieldRefs>
+        </pnp:ContentType>
+      </pnp:ContentTypes>
+      <pnp:Lists>
+        <pnp:ListInstance Title="Projects" TemplateType="100" Url="Lists/Projects" />
+      </pnp:Lists>
+    </pnp:ProvisioningTemplate>
+  </pnp:Templates>
+</pnp:Provisioning>

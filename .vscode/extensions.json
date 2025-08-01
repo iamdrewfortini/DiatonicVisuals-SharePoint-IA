@@ -1,0 +1,56 @@
+{
+  "recommendations": [
+    // Essential SPFx Development Extensions
+    "ms-vscode.vscode-typescript-next",
+    "ms-vscode.vscode-node-azure-pack",
+    "ms-sharepoint.sharepoint-framework-snippets",
+    
+    // Code Quality & Formatting
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "bradlc.vscode-tailwindcss",
+    
+    // React Development
+    "ms-vscode.vscode-react-jsx",
+    "dsznajder.es7-react-js-snippets",
+    "formulahendry.auto-rename-tag",
+    "bradlc.vscode-tailwindcss",
+    
+    // TypeScript Enhancement
+    "ms-vscode.typescript-importer",
+    "usernamehw.errorlens",
+    "christian-kohler.path-intellisense",
+    
+    // Git & Version Control
+    "eamodio.gitlens",
+    "github.vscode-pull-request-github",
+    "mhutchie.git-graph",
+    
+    // Productivity Tools
+    "ms-vscode.vscode-json",
+    "redhat.vscode-yaml",
+    "ms-vscode.powershell",
+    "formulahendry.auto-close-tag",
+    "ms-vscode.hexeditor",
+    
+    // SharePoint Specific
+    "tahsin-ahmed.sharepoint-fluent-ui-snippets",
+    "m365pnp.viva-connections-toolkit",
+    
+    // Testing & Debugging
+    "ms-vscode.vscode-node-azure-pack",
+    "ms-playwright.playwright",
+    
+    // Documentation & Comments
+    "aaron-bond.better-comments",
+    "streetsidesoftware.code-spell-checker",
+    
+    // Theme & UI
+    "pkief.material-icon-theme",
+    "ms-vscode.theme-tomorrowkit"
+  ],
+  "unwantedRecommendations": [
+    "ms-vscode.vscode-typescript",
+    "hookyqr.beautify"
+  ]
+}

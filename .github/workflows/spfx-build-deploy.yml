@@ -1,0 +1,89 @@
+name: SPFx Build and Deploy
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'src/**'
+      - 'config/**'
+      - 'package.json'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '22.x'
+        cache: 'npm'
+        
+    - name: Install dependencies
+      run: npm install
+      
+    - name: Build SPFx solution
+      run: |
+        npm run build
+        gulp bundle --ship
+        gulp package-solution --ship
+        
+    - name: Upload SPFx package
+      uses: actions/upload-artifact@v3
+      with:
+        name: spfx-package
+        path: sharepoint/solution/*.sppkg
+        
+  deploy-to-tenant:
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.ref == 'refs/heads/main'
+    
+    environment: production
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '22.x'
+        
+    - name: Install CLI for Microsoft 365
+      run: npm install -g @pnp/cli-microsoft365
+      
+    - name: Download SPFx package
+      uses: actions/download-artifact@v3
+      with:
+        name: spfx-package
+        path: ./sharepoint/solution/
+        
+    - name: Authenticate to Microsoft 365
+      run: |
+        m365 login --authType password --userName ${{ secrets.M365_USERNAME }} --password ${{ secrets.M365_PASSWORD }}
+      env:
+        M365_USERNAME: ${{ secrets.M365_USERNAME }}
+        M365_PASSWORD: ${{ secrets.M365_PASSWORD }}
+        
+    - name: Deploy to App Catalog
+      run: |
+        PACKAGE_FILE=$(find ./sharepoint/solution -name "*.sppkg" | head -1)
+        m365 spo app add --filePath "$PACKAGE_FILE" --appCatalogUrl ${{ secrets.APPCATALOG_URL }} --overwrite
+        
+    - name: Install App in Sites
+      run: |
+        APP_ID=$(m365 spo app list --appCatalogUrl ${{ secrets.APPCATALOG_URL }} --query "[?contains(Title, 'diatonic-visuals')].ID" --output text)
+        m365 spo app install --id $APP_ID --siteUrl ${{ secrets.ROOT_HUB_URL }}
+      env:
+        APPCATALOG_URL: ${{ secrets.APPCATALOG_URL }}
+        ROOT_HUB_URL: ${{ secrets.ROOT_HUB_URL }}
+        
+    - name: Logout from Microsoft 365
+      if: always()
+      run: m365 logout

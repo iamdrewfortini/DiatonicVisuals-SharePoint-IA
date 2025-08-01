@@ -1,0 +1,22 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "whichFolder": "subdir",
+    "solutionName": "DiatonicVisuals",
+    "skipFeatureDeployment": true,
+    "componentType": "webpart",
+    "template": "react",
+    "componentName": "DiatonicVisualsWebPart",
+    "componentDescription": "SharePoint web part for Diatonic Visuals",
+    "plusBeta": false,
+    "isCreatingSolution": true,
+    "nodeVersion": "22.17.1",
+    "sdksVersions": {},
+    "version": "1.21.1",
+    "libraryName": "diatonic-visuals",
+    "libraryId": "6ac33f59-d784-4dbe-bef3-930ee6153e8b",
+    "environment": "spo",
+    "packageManager": "npm",
+    "solutionShortDescription": "DiatonicVisuals description",
+    "isDomainIsolated": false
+  }
+}

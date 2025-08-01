@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "diatonic-visuals-client-side-solution",
+    "id": "6ac33f59-d784-4dbe-bef3-930ee6153e8b",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.21.1"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "DiatonicVisuals description"
+      },
+      "longDescription": {
+        "default": "DiatonicVisuals description"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "diatonic-visuals Feature",
+        "description": "The feature that activates elements of the diatonic-visuals solution.",
+        "id": "6a82c188-27f0-4599-8834-33608bbb14d3",
+        "version": "1.0.0.0"
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/diatonic-visuals.sppkg"
+  }
+}

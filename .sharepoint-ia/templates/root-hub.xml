@@ -1,0 +1,122 @@
+<pnp:Provisioning xmlns:pnp="http://schemas.dev.office.com/PnP/2024/10/ProvisioningSchema">
+  <pnp:Templates>
+    <pnp:ProvisioningTemplate ID="RootHub">
+      <pnp:SiteFields>
+        <pnp:Field DisplayName="Service Category" Name="DV_ServiceCategory" Type="TaxonomyFieldType" />
+        <pnp:Field DisplayName="Content Stage" Name="DV_ContentStage" Type="Choice" Choices="Draft;In-Review;Final;Archive" />
+      </pnp:SiteFields>
+      
+      <pnp:ContentTypes>
+        <pnp:ContentType ID="0x0101009D1CB255DA76424F860D91F20E6C4119" Name="DV Corporate Document">
+          <pnp:FieldRefs>
+            <pnp:FieldRef Name="DV_ServiceCategory" />
+            <pnp:FieldRef Name="DV_ContentStage" />
+          </pnp:FieldRefs>
+        </pnp:ContentType>
+      </pnp:ContentTypes>
+      
+      <pnp:Lists>
+        <pnp:ListInstance Title="Global-Nav" TemplateType="100" Url="Lists/Global-Nav">
+          <pnp:ContentTypeBindings>
+            <pnp:ContentTypeBinding ContentTypeID="0x0100" Default="true" />
+          </pnp:ContentTypeBindings>
+          <pnp:Fields>
+            <pnp:Field DisplayName="Nav Title" Name="NavTitle" Type="Text" />
+            <pnp:Field DisplayName="Nav URL" Name="NavURL" Type="URL" />
+            <pnp:Field DisplayName="Sort Order" Name="SortOrder" Type="Number" />
+          </pnp:Fields>
+        </pnp:ListInstance>
+        
+        <pnp:ListInstance Title="Policies" TemplateType="101" Url="Policies">
+          <pnp:ContentTypeBindings>
+            <pnp:ContentTypeBinding ContentTypeID="0x0101009D1CB255DA76424F860D91F20E6C4119" Default="true" />
+          </pnp:ContentTypeBindings>
+        </pnp:ListInstance>
+        
+        <pnp:ListInstance Title="Brand-Assets" TemplateType="101" Url="Brand-Assets">
+          <pnp:ContentTypeBindings>
+            <pnp:ContentTypeBinding ContentTypeID="0x0101009D1CB255DA76424F860D91F20E6C4119" Default="true" />
+          </pnp:ContentTypeBindings>
+        </pnp:ListInstance>
+        
+        <pnp:ListInstance Title="Templates" TemplateType="101" Url="Templates">
+          <pnp:ContentTypeBindings>
+            <pnp:ContentTypeBinding ContentTypeID="0x0101009D1CB255DA76424F860D91F20E6C4119" Default="true" />
+          </pnp:ContentTypeBindings>
+        </pnp:ListInstance>
+      </pnp:Lists>
+      
+      <pnp:Pages>
+        <pnp:ClientSidePage PageName="Home.aspx" PromoteAsNewsArticle="false" PromoteAsTemplate="false" Overwrite="true" Layout="Home">
+          <pnp:Sections>
+            <pnp:Section Order="1" Type="OneColumn">
+              <pnp:Controls>
+                <pnp:CanvasControl WebPartType="Hero" ControlId="{c4bd7b2f-7b6e-4599-8485-16504575f590}" Order="1" Column="1">
+                  <pnp:CanvasControlProperties>
+                    <![CDATA[{"title":"Welcome to Diatonic Visuals HQ","description":"Your central hub for all company resources and client portals."}]]>
+                  </pnp:CanvasControlProperties>
+                </pnp:CanvasControl>
+              </pnp:Controls>
+            </pnp:Section>
+          </pnp:Sections>
+        </pnp:ClientSidePage>
+        
+        <pnp:ClientSidePage PageName="Knowledge-Center.aspx" PromoteAsNewsArticle="false" PromoteAsTemplate="false" Overwrite="true" Layout="Article">
+          <pnp:Sections>
+            <pnp:Section Order="1" Type="OneColumn">
+              <pnp:Controls>
+                <pnp:CanvasControl WebPartType="Text" ControlId="{1f991d46-3bb1-4ffe-9e41-c0894a35f9b6}" Order="1" Column="1">
+                  <pnp:CanvasControlProperties>
+                    <![CDATA[{"innerHTML":"<h1>Knowledge Center</h1><p>Central repository for all company knowledge and resources.</p>"}]]>
+                  </pnp:CanvasControlProperties>
+                </pnp:CanvasControl>
+              </pnp:Controls>
+            </pnp:Section>
+          </pnp:Sections>
+        </pnp:ClientSidePage>
+        
+        <pnp:ClientSidePage PageName="All-Clients.aspx" PromoteAsNewsArticle="false" PromoteAsTemplate="false" Overwrite="true" Layout="Article">
+          <pnp:Sections>
+            <pnp:Section Order="1" Type="OneColumn">
+              <pnp:Controls>
+                <pnp:CanvasControl WebPartType="Text" ControlId="{1f991d46-3bb1-4ffe-9e41-c0894a35f9b7}" Order="1" Column="1">
+                  <pnp:CanvasControlProperties>
+                    <![CDATA[{"innerHTML":"<h1>All Clients</h1><p>Directory of all client portals and project information.</p>"}]]>
+                  </pnp:CanvasControlProperties>
+                </pnp:CanvasControl>
+              </pnp:Controls>
+            </pnp:Section>
+          </pnp:Sections>
+        </pnp:ClientSidePage>
+        
+        <pnp:ClientSidePage PageName="Service-Catalog.aspx" PromoteAsNewsArticle="false" PromoteAsTemplate="false" Overwrite="true" Layout="Article">
+          <pnp:Sections>
+            <pnp:Section Order="1" Type="OneColumn">
+              <pnp:Controls>
+                <pnp:CanvasControl WebPartType="Text" ControlId="{1f991d46-3bb1-4ffe-9e41-c0894a35f9b8}" Order="1" Column="1">
+                  <pnp:CanvasControlProperties>
+                    <![CDATA[{"innerHTML":"<h1>Service Catalog</h1><p>Complete catalog of all services offered by Diatonic Visuals.</p>"}]]>
+                  </pnp:CanvasControlProperties>
+                </pnp:CanvasControl>
+              </pnp:Controls>
+            </pnp:Section>
+          </pnp:Sections>
+        </pnp:ClientSidePage>
+      </pnp:Pages>
+      
+      <pnp:Theme>
+        <pnp:CustomColorPalette>
+          <pnp:Color Name="themePrimary" Value="#0078d4" />
+          <pnp:Color Name="themeLighterAlt" Value="#eff6fc" />
+          <pnp:Color Name="themeLighter" Value="#deecf9" />
+          <pnp:Color Name="themeLight" Value="#c7e0f4" />
+          <pnp:Color Name="themeTertiary" Value="#71afe5" />
+          <pnp:Color Name="themeSecondary" Value="#2b88d8" />
+          <pnp:Color Name="themeDarkAlt" Value="#106ebe" />
+          <pnp:Color Name="themeDark" Value="#005a9e" />
+          <pnp:Color Name="themeDarker" Value="#004578" />
+        </pnp:CustomColorPalette>
+      </pnp:Theme>
+    </pnp:ProvisioningTemplate>
+  </pnp:Templates>
+</pnp:Provisioning>

@@ -1,0 +1,115 @@
+// SPFx Development Settings for DiatonicVisuals
+{
+  // File Exclusion Patterns
+  "files.exclude": {
+    "**/.git": true,
+    "**/.DS_Store": true,
+    "**/bower_components": true,
+    "**/coverage": true,
+    "**/jest-output": true,
+    "**/lib-amd": true,
+    "**/lib-es6": true,
+    "**/node_modules": true,
+    "**/temp": true,
+    "**/dist": true,
+    "src/**/*.scss.ts": true,
+    "**/*.d.ts": false
+  },
+  
+  // TypeScript Configuration
+  "typescript.tsdk": "./node_modules/typescript/lib",
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "typescript.suggest.autoImports": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  
+  // Editor Configuration
+  "editor.insertSpaces": true,
+  "editor.tabSize": 2,
+  "editor.detectIndentation": false,
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "explicit"
+  },
+  "editor.rulers": [80, 120],
+  "editor.wordWrap": "wordWrapColumn",
+  "editor.wordWrapColumn": 120,
+  
+  // File Formatting
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true,
+  "files.trimFinalNewlines": true,
+  
+  // Language Specific Settings
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2
+  },
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2
+  },
+  
+  // ESLint Configuration
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "eslint.format.enable": true,
+  
+  // Prettier Configuration
+  "prettier.requireConfig": false,
+  "prettier.singleQuote": true,
+  "prettier.trailingComma": "es5",
+  "prettier.printWidth": 120,
+  "prettier.tabWidth": 2,
+  "prettier.useTabs": false,
+  
+  // Search Configuration
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/bower_components": true,
+    "**/lib-amd": true,
+    "**/lib-es6": true,
+    "**/temp": true,
+    "**/dist": true,
+    "**/coverage": true
+  },
+  
+  // SPFx Specific Settings
+  "gulp.autoDetect": "on",
+  "npm.enableScriptExplorer": true,
+  
+  // Git Configuration
+  "git.ignoreLimitWarning": true,
+  "git.autofetch": true,
+  
+  // Terminal Configuration
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
+  "terminal.integrated.profiles.windows": {
+    "PowerShell": {
+      "source": "PowerShell",
+      "args": ["-NoProfile"]
+    }
+  }
+}
