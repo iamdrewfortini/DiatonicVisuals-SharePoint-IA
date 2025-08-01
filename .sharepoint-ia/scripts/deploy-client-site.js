@@ -18,8 +18,8 @@ if (!clientName) {
 const config = {
   clientName: clientName,
   title: `${clientName} Portal`,
-  url: `https://dv.sharepoint.com/sites/${clientName.toLowerCase().replace(/\s+/g, '-')}`,
-  owner: 'pm@dv.com',
+  url: `https://diatonicvisuals.sharepoint.com/sites/${clientName.toLowerCase().replace(/\s+/g, '-')}`,
+  owner: 'admin@diatonic.online',
   lcid: 1033,
   clientsHubId: process.env.CLIENTS_HUB_ID || ''
 };

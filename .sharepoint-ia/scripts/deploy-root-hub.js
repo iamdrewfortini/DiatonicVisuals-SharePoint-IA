@@ -10,9 +10,9 @@ const path = require('path');
 
 const config = {
   title: 'Diatonic Visuals HQ',
-  url: 'https://dv.sharepoint.com',
+  url: 'https://diatonicvisuals.sharepoint.com',
   template: 'SITEPAGEPUBLISHING#0',
-  owner: 'admin@dv.com',
+  owner: 'admin@diatonic.online',
   lcid: 1033,
   timeZone: 13
 };
