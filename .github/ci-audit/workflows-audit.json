@@ -1,0 +1,68 @@
+{
+  "repo": "iamdrewfortini/DiatonicVisuals-SharePoint-IA",
+  "failedRunsCount": 4,
+  "topFailedRuns": [
+    {
+      "name": "npm_and_yarn in /. for axios, body-parser, braces, cookie, express, express, form-data, form-data, got, js-yaml, node-notifier, postcss, request, semver, send, serve-static, tmp, tough-cookie, validator, webpack, yargs-parser - Update #1152692194",
+      "url": "https://github.com/iamdrewfortini/DiatonicVisuals-SharePoint-IA/actions/runs/19388065766",
+      "createdAt": "2025-11-15T09:51:52Z",
+      "databaseId": 19388065766
+    },
+    {
+      "name": "npm_and_yarn in /. for axios, body-parser, braces, cookie, express, express, form-data, form-data, got, node-notifier, postcss, request, semver, send, serve-static, tmp, tough-cookie, validator, webpack, yargs-parser - Update #1135508294",
+      "url": "https://github.com/iamdrewfortini/DiatonicVisuals-SharePoint-IA/actions/runs/18849004731",
+      "createdAt": "2025-10-27T16:49:31Z",
+      "databaseId": 18849004731
+    },
+    {
+      "name": "npm_and_yarn in /. for axios, body-parser, braces, cookie, express, express, form-data, form-data, got, node-notifier, postcss, request, semver, send, serve-static, tmp, tough-cookie, webpack, yargs-parser - Update #1113744559",
+      "url": "https://github.com/iamdrewfortini/DiatonicVisuals-SharePoint-IA/actions/runs/18148736025",
+      "createdAt": "2025-10-01T01:53:37Z",
+      "databaseId": 18148736025
+    },
+    {
+      "name": "npm_and_yarn in  for axios, body-parser, braces, cookie, express, express, form-data, form-data, got, node-notifier, postcss, request, semver, send, serve-static, tmp, tough-cookie, webpack, yargs-parser - Update #1099058316",
+      "url": "https://github.com/iamdrewfortini/DiatonicVisuals-SharePoint-IA/actions/runs/17699321327",
+      "createdAt": "2025-09-13T16:43:08Z",
+      "databaseId": 17699321327
+    }
+  ],
+  "longestJobs": [
+    {
+      "runUrl": "https://github.com/iamdrewfortini/DiatonicVisuals-SharePoint-IA/actions/runs/18148736025",
+      "jobName": "Dependabot",
+      "durationMinutes": 5.07,
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "conclusion": "failure"
+    },
+    {
+      "runUrl": "https://github.com/iamdrewfortini/DiatonicVisuals-SharePoint-IA/actions/runs/19388065766",
+      "jobName": "Dependabot",
+      "durationMinutes": 4.98,
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "conclusion": "failure"
+    },
+    {
+      "runUrl": "https://github.com/iamdrewfortini/DiatonicVisuals-SharePoint-IA/actions/runs/17699321327",
+      "jobName": "Dependabot",
+      "durationMinutes": 4.7,
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "conclusion": "failure"
+    },
+    {
+      "runUrl": "https://github.com/iamdrewfortini/DiatonicVisuals-SharePoint-IA/actions/runs/18849004731",
+      "jobName": "Dependabot",
+      "durationMinutes": 4.53,
+      "labels": [
+        "ubuntu-latest"
+      ],
+      "conclusion": "failure"
+    }
+  ]
+}
